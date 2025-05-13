@@ -1,0 +1,78 @@
+/* Base Styles */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fffdf9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fcddec;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 1.8rem;
+  color: #d63384;
+}
+
+.main-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.slogan {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.top-stories h2 {
+  font-size: 1.3rem;
+  color: #6f42c1;
+  margin-bottom: 20px;
+}
+
+.stories-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.story-card {
+  background-color: #ffe0f0;
+  padding: 20px;
+  width: 120px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  background-color: #ffb3d1;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
