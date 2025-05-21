@@ -12,19 +12,19 @@
   <nav class="navbar">
     <div class="navbar-brand">Newsie</div>
     <ul class="navbar-links">
-      <li><a href="analyze.html">Analyze</a></li>
+      <li><a href="analyze.ejs">Analyze</a></li>
       <li><a href="stories.html">Stories</a></li>
-    </ul>
+    </ul>`15623
   </nav>
 
   <!-- Existing cards go here -->
-
+<% for (let i = 0; i < articles.length; i++) { %>
   <a class="card-link" href="article1.html">
     <div class="card-container">
       <div class="card">
         <div class="card-face card-front">
-          <h2>Breaking News: Science Discovery</h2>
-          <p>Reading Level: 9</p>
+          <h2>Breaking News: <%= articles[i].title %></h2>
+          <p>Reading Level: <%= articles[i].readingLevel %></p>
         </div>
         <div class="card-face card-back">
           <p>Scientists have uncovered a new species of dinosaur in Argentina.</p>
@@ -32,6 +32,6 @@
       </div>
     </div>
   </a>
-
+<% } %>
 </body>
 </html>

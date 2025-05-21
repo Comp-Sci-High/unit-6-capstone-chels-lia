@@ -27,7 +27,7 @@ const articleSchema = new mongoose.Schema(
 const Article = mongoose.model("Article", articleSchema, "Articles")
 
 
-app.use("/add/article", async (req, res) => {
+app.post("/add/article", async (req, res) => {
   const newArticle = await new Article({
     title: req.body.title,
     readingLevel: req.body.readingLevel,
@@ -48,6 +48,10 @@ app.get("/", async (req, res) => {
   const articles = await Article.find()
   res.render("home.ejs", {articles});
 });
+
+app.get("/analyze", async (req, res) => {
+res.render("analyze.ejs", )
+})
 
 app.patch("/update/:_id", async (req, res) => {
     const response = await Article.findOneAndUpdate({_id: req.params._id},   req.body, {new:true})
