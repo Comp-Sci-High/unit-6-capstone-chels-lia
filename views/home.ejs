@@ -10,28 +10,37 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="navbar-brand">Newsie</div>
+    <div class="navbar-brand"><i class="fas fa-feather-alt"></i> Newsie</div>
     <ul class="navbar-links">
-      <li><a href="analyze.ejs">Analyze</a></li>
-      <li><a href="stories.html">Stories</a></li>
-    </ul>`15623
+      <li><a href="/analyze">Analyze</a></li>
+      <li><a href="/stories">Stories</a></li>
+    </ul>
   </nav>
 
-  <!-- Existing cards go here -->
-<% for (let i = 0; i < articles.length; i++) { %>
-  <a class="card-link" href="article1.html">
-    <div class="card-container">
-      <div class="card">
-        <div class="card-face card-front">
-          <h2>Breaking News: <%= articles[i].title %></h2>
-          <p>Reading Level: <%= articles[i].readingLevel %></p>
-        </div>
-        <div class="card-face card-back">
-          <p>Scientists have uncovered a new species of dinosaur in Argentina.</p>
-        </div>
-      </div>
+  <div class="container">
+    <div class="hero">
+      <h1>📘 Makes News Easy to Read</h1>
+      <p>We simplify the complex so you can stay informed without the stress.</p>
     </div>
-  </a>
-<% } %>
+
+    <div class="section-title">🌟 Top Stories</div>
+    <div class="cards">
+      <% for (let i = 0; i < articles.length && i < 3; i++) { %>
+        <a class="card-link" href="<%= articles[i].link %>">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-face card-front">
+                <h2><%= articles[i].title %></h2>
+                <p>Reading Level: <%= articles[i].readingLevel %></p>
+              </div>
+              <div class="card-face card-back">
+                <p><%= articles[i].text.substring(0, 100) %>...</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    </div>
+  </div>
 </body>
 </html>

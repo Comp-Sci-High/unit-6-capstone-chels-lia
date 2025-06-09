@@ -1,67 +1,134 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
-  margin: 0;
-  padding: 0;
-}
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffeef8;
+    }
 
-.navbar {
-  background-color: #2c3e50;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  font-size: 24px;
-  letter-spacing: 2px;
-}
+    .navbar {
+      background-color: #ffcce5;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.container {
-  display: flex;
-  padding: 2rem;
-}
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d63384;
+    }
 
-.main-content {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
 
-input[type="text"] {
-  padding: 0.75rem;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .navbar-links li a {
+      text-decoration: none;
+      color: #b30059;
+      transition: color 0.3s ease;
+      font-weight: bold;
+    }
 
-button {
-  width: 150px;
-  padding: 0.75rem;
-  font-size: 16px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .navbar-links li a:hover {
+      color: #800040;
+    }
 
-button:hover {
-  background-color: #2980b9;
-}
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
-.sidebar {
-  flex: 1;
-  margin-left: 2rem;
-  background-color: #ffffff;
-  border-left: 2px solid #ccc;
-  padding: 1rem;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-}
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff66b2;
+      margin-bottom: 1rem;
+      animation: sparkle 2s infinite;
+    }
 
-.chat-box {
-  margin-top: 1rem;
-  background-color: #ecf0f1;
-  padding: 1rem;
-  border-radius: 5px;
-  height: 150px;
-  overflow-y: auto;
-}
+    form {
+      background-color: #fff0f5;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: fadeInUp 0.5s ease both;
+    }
+
+    input, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ffcce5;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #ff80bf;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #ff4da6;
+      transform: scale(1.05);
+    }
+
+    .card {
+      background-color: #ffe6f0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(255, 182, 193, 0.2);
+      margin-bottom: 1rem;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .main-content, .sidebar {
+      flex: 1;
+    }
+
+    .chat-box p {
+      background: #ffd9ec;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { text-shadow: 0 0 5px #ffccf9; }
+      50% { text-shadow: 0 0 15px #ff99cc; }
+    }
+  

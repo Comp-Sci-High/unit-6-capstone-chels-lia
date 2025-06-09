@@ -4,15 +4,9 @@ const { type } = require("os");
 
 const app = express()
 app.use(express.static(__dirname + "/public"));
-
 app.set("view engine", "ejs")
-
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(`${req.method}: ${req.path}`);
-  next();
-});
 
 const articleSchema = new mongoose.Schema(
     {
@@ -24,7 +18,19 @@ const articleSchema = new mongoose.Schema(
 }
 )
 
+
 const Article = mongoose.model("Article", articleSchema, "Articles")
+
+
+app.use((req, res, next) => {
+  console.log(`${req.method}: ${req.path}`);
+  next();
+});
+
+app.get("/analyze", async (req, res) => {
+  const articles = await Article.find();
+  res.render("analyze.ejs", { articles });
+});
 
 
 app.post("/add/article", async (req, res) => {
@@ -38,24 +44,14 @@ app.post("/add/article", async (req, res) => {
  });
 
 
-app.use((req, res, next) => {
-    console.log(`${req.method}: ${req.path}`);
-    next();
-});
-
-
 app.get("/", async (req, res) => {
   const articles = await Article.find()
   res.render("home.ejs", {articles});
 });
 
-app.get("/analyze", async (req, res) => {
-res.render("analyze.ejs", )
-})
 
 app.patch("/update/:_id", async (req, res) => {
-    const response = await Article.findOneAndUpdate({_id: req.params._id},   req.body, {new:true})
-  
+    const response = await Article.findOneAndUpdate({_id: req.params._id}, req.body, {new:true})
     res.json(response)
 })
 
@@ -65,18 +61,10 @@ app.delete("/delete/:_id", async (req, res) => {
     res.json(resp)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/stories", async (req, res) => {
+  const articles = await Article.find();
+  res.render("stories.ejs", { articles });
+});
 
 async function startServer() {
    

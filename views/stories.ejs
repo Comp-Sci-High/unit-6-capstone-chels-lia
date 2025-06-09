@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stories Page</title>
+  <link rel="stylesheet" href="/stories.css" />
+</head>
+<body>
+   <nav class="navbar">
+    <div class="navbar-brand"><i class="fas fa-star"></i> Newsie</div>
+    <ul class="navbar-links">
+      <li><a href="/analyze">Analyze</a></li>
+      <li><a href="/stories">Stories</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <% if (articles.length === 0) { %>
+      <p>No stories yet!</p>
+    <% } else { %>
+      <% articles.forEach(article => { %>
+        <div class="story-card">
+          <h2><a href="<%= article.link %>" target="_blank"><%= article.title %></a></h2>
+          <p><strong>Reading Level:</strong> <%= article.readingLevel %></p>
+          <p><%= article.text %></p>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</body>
+</html>
+
